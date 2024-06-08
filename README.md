@@ -1,4 +1,5 @@
 # IMG2ASCII
+![build](https://github.com/EfesX/img2ascii/actions/workflows/build.yml/badge.svg)
 
 The simple converter any image into ASCII art.
 
