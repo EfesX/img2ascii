@@ -1,0 +1,30 @@
+name: build
+on:
+   push:
+      branches: [ "main" ]
+   pull_request:
+      branches: [ "main" ]
+      
+jobs:
+   build_job:
+      runs-on: ubuntu-latest
+      
+      steps:
+        - name: checkout
+          uses: actions/checkout@v4
+          with:
+            submodules: true
+
+        - name: prepare
+          run: |
+            sudo apt install cmake make g++
+            git clone https://github.com/microsoft/vcpkg
+            ./vcpkg/bootstrap-vcpkg.sh
+            ./vcpkg/vcpkg install opencv
+            export VCPKG_ROOT=${PWD}/vcpkg
+
+        - name: build
+          run: |
+            cmake -S . -B build
+            sudo cmake --install build
+            img2ascii --help
