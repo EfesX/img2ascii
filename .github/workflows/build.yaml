@@ -16,12 +16,7 @@ jobs:
             submodules: true
 
         - name: prepare
-          run: |
-            sudo apt install cmake make g++
-            git clone https://github.com/microsoft/vcpkg
-            ./vcpkg/bootstrap-vcpkg.sh
-            ./vcpkg/vcpkg install opencv
-            export VCPKG_ROOT=${PWD}/vcpkg
+          run: sudo apt install cmake make g++ opencv
 
         - name: build
           run: |
