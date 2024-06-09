@@ -17,7 +17,7 @@ jobs:
 
         - name: prepare
           run: |
-            sudo apt install cmake make g++ meson
+            sudo apt install cmake make g++ meson libxi-dev libxtst-dev
             git clone https://github.com/microsoft/vcpkg
             ./vcpkg/bootstrap-vcpkg.sh
             ./vcpkg/vcpkg install opencv
